@@ -1,0 +1,56 @@
+	- Flash cards, divided up by lesson
+		- Starter decks, one per unit, but if you create an account you can save your own cards as well.
+			- Terms: element, tag, selector
+			- Types: arrays, objects, numbers, strings
+			- for loops
+			- if statements
+			- do/while
+			- jQuery: creating elements, selecting elements, .append, .html, .val
+			- ajax
+		- Database models:
+			- users
+				userName : {
+					decks : [deckName, deckName2, deckName3],
+					password : ######
+				}
+			- decks
+				deckName : {
+					cards: [card, card2, card3],
+					public: boolean,
+					votes: number,
+					tags: jQuery, javascript, code
+				}
+				- public decks can be seen by anyone and added to anyone's dashboard
+					- other people can view owner of public decks
+					- can upvote public decks
+				- private decks are only on user's dashboard
+				- Can have groups, like cohorts, where users can connect and share decks with each other?
+			- cards
+				card : {
+					front: 'How do you add a div with id="myDiv" to an existing element with id="myElement" using jQuery?'
+					back: '$("#myElement").append($("#myDiv"))'
+					mastered: boolean
+				}
+				- Can use algorithm to only study cards that have not been mastered
+				- how to store the answer?
+					- want to lint it
+					- store characters, not whitespace (unless it is whitespace before a .)
+					- what about questions with multiple answers? Like append vs. appendTo
+		- Interface
+			- Log in to save your data
+				- If you don't, you can still study and test public decks, but you can't save your mastery of various cards, and you can't save a new deck
+			- Dashboard
+				- has all decks you own
+				- can create new deck
+			- Marketplace
+				- has all public decks 
+				- can search by tags
+				- can add public deck to dashboard
+			- Choose the deck you want to study
+				- Study deck page is one view, but URL has username(?) and deckname in it so you can go directly to that page
+				- Add/delete cards to the deck if you choose
+					- If you do, deck belongs to you; can rename and make public or private
+				- Study: look at cards and flip over
+					- can choose to only study "mastered"
+				- Test: given front of card, need to type out back of card -> must match
+					- determines "mastered" status of card
